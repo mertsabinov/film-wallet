@@ -47,9 +47,7 @@ const Home: FC<IProps> = ({ data }) => {
           placeholder="exemple marvel"
           onChange={(e) => setSearch(e.target.value)}
         />
-        <Button isLoading={searchStatus} onClick={() => searchButton()}>
-          Search
-        </Button>
+        <Button onClick={() => searchButton()}>Search</Button>
       </HStack>
       <Skeleton marginTop="3%" isLoaded={!searchStatus}>
         <MovieList itemList={movies} />
