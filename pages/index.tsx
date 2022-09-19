@@ -2,7 +2,6 @@ import type { GetServerSideProps } from "next";
 import { useEffect, useState } from "react";
 import PageLayout from "../components/layouts/PageLayout";
 import MovieList from "../components/MovieList";
-import { API } from "../config";
 import { Button, HStack, Input, Skeleton } from "@chakra-ui/react";
 import { FC } from "react";
 
@@ -17,9 +16,10 @@ type Movie = {
 
 type IProps = {
   data: Movie[];
+  API: String;
 };
 
-const Home: FC<IProps> = ({ data }) => {
+const Home: FC<IProps> = ({ data, API }) => {
   const [movies, setMovies] = useState(data || []);
   const [search, setSearch] = useState<string>("");
   const [searchStatus, setSearchStatus] = useState<Boolean>(false);
@@ -59,11 +59,13 @@ const Home: FC<IProps> = ({ data }) => {
 export default Home;
 
 export const getStaticProps: GetServerSideProps = async () => {
+  const API = process.env.API;
   const res = await fetch(API + "marvel");
   const data = await res.json().then((res) => res.results);
   return {
     props: {
-      data,
+      data: data,
+      API: API,
     },
   };
 };
