@@ -56,7 +56,9 @@ const MovieList: FC<IProps> = ({ itemList }) => {
       </SimpleGrid>
       <HStack justifyContent="center" paddingTop="5%" paddingBottom="3%">
         {Array.from({ length: pageSize }).map((_, index) => (
-          <Button onClick={() => pageLoader(index + 1)}>{index + 1}</Button>
+          <Button key={index} onClick={() => pageLoader(index + 1)}>
+            {index + 1}
+          </Button>
         ))}
       </HStack>
     </Box>
