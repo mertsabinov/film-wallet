@@ -1,4 +1,4 @@
-import type { GetServerSideProps } from "next";
+import type { GetStaticProps } from "next";
 import { useEffect, useState } from "react";
 import PageLayout from "../components/layouts/PageLayout";
 import MovieList from "../components/MovieList";
@@ -58,7 +58,7 @@ const Home: FC<IProps> = ({ data, API }) => {
 
 export default Home;
 
-export const getStaticProps: GetServerSideProps = async () => {
+export const getStaticProps: GetStaticProps = async () => {
   const API = process.env.API;
   const res = await fetch(API + "marvel");
   const data = await res.json().then((res) => res.results);
