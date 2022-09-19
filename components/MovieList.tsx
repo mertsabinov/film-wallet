@@ -16,12 +16,12 @@ type IProps = {
 
 const MovieList: FC<IProps> = ({ itemList }) => {
   const pageSize: number = itemList.length / 25;
-  const [itemListFilter, setItemListFilter] = useState([]);
+  const [itemListFilter, setItemListFilter] = useState<Movie[]>([]);
 
   const pageLoader = (pageCount: number) => {
     let max = pageCount * 25;
     let min = max - 25;
-    let newItemList: any[] = [];
+    let newItemList: Movie[] = [];
     newItemList = itemList.slice(min, max);
     setItemListFilter(newItemList);
   };
