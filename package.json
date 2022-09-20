@@ -5,10 +5,11 @@
   "private": true,
   "scripts": {
     "dev": "next dev",
-    "build": "next build",
+    "build": "next build && next export",
     "start": "next start",
-    "export": "next export",
-    "lint": "next lint"
+    "lint": "next lint",
+    "static": "next build && next export && touch ./out/.nojekyll && echo 'www.mywebsite.com' > ./out/CNAME",
+    "deploy": "gh-pages -d out -t true"
   },
   "dependencies": {
     "@chakra-ui/react": "^2.3.2",
@@ -25,6 +26,7 @@
     "@types/react-dom": "18.0.6",
     "eslint": "8.23.1",
     "eslint-config-next": "12.3.0",
+    "gh-pages": "^4.0.0",
     "typescript": "4.8.3"
   }
 }
