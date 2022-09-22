@@ -4,7 +4,8 @@ const Navbar = () => {
   return (
     <HStack justifyContent="center" marginTop="2%">
       <Link href="/">Home</Link>
-      <Link href="/mylist">My List</Link>
+      <Link href="/mywatchlist">My watchlist </Link>
+      <Link href="/watchedlist">Watched list</Link>
     </HStack>
   );
 };
