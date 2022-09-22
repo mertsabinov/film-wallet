@@ -6,5 +6,4 @@ const nextConfig = {
 
 module.exports = {
   nextConfig,
-  basePath: "/film-walet",
 };
