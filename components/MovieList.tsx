@@ -37,7 +37,7 @@ const MovieList: FC<IProps> = ({ itemList }) => {
   }, []);
 
   const addToWatchList = (title: string, image: string, id: string) => {
-    const movie = {
+    const movie: costomMovie = {
       id: id,
       title: title,
       image: image,
@@ -48,11 +48,29 @@ const MovieList: FC<IProps> = ({ itemList }) => {
       );
       movieWatchList.push(movie);
       localStorage.setItem("watchList", JSON.stringify(movieWatchList));
-      console.log(localStorage.getItem("watchList"));
     } catch (error) {
       const tmpList = [];
       tmpList.push(movie);
       localStorage.setItem("watchList", JSON.stringify(tmpList));
+    }
+  };
+
+  const addToWatchedList = (title: string, image: string, id: string) => {
+    const movie: costomMovie = {
+      id: id,
+      title: title,
+      image: image,
+    };
+    try {
+      let movieWatchedList: costomMovie[] = JSON.parse(
+        localStorage.getItem("watchedList") || ""
+      );
+      movieWatchedList.push(movie);
+      localStorage.setItem("watchedList", JSON.stringify(movieWatchedList));
+    } catch (error) {
+      const tmpList = [];
+      tmpList.push(movie);
+      localStorage.setItem("watchedList", JSON.stringify(tmpList));
     }
   };
 
@@ -77,6 +95,15 @@ const MovieList: FC<IProps> = ({ itemList }) => {
               _hover={{ background: "orange.200" }}
             >
               add to watch list
+            </Button>
+            <Button
+              w="100%"
+              marginTop="5%"
+              backgroundColor="blue.200"
+              onClick={() => addToWatchedList(title, image, id)}
+              _hover={{ background: "orange.200" }}
+            >
+              add to watched list
             </Button>
           </Box>
         ))}
