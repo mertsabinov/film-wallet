@@ -1,4 +1,12 @@
-import { Box, SimpleGrid, Text, Image, Button, HStack } from "@chakra-ui/react";
+import {
+  Box,
+  SimpleGrid,
+  Text,
+  Image,
+  Button,
+  HStack,
+  useToast,
+} from "@chakra-ui/react";
 import { FC, useEffect, useState } from "react";
 
 type Movie = {
@@ -23,6 +31,7 @@ type IProps = {
 const MovieList: FC<IProps> = ({ itemList }) => {
   const pageSize: number = itemList.length / 25;
   const [itemListFilter, setItemListFilter] = useState<Movie[]>([]);
+  const toast = useToast();
 
   const pageLoader = (pageCount: number) => {
     let max = pageCount * 25;
@@ -53,6 +62,14 @@ const MovieList: FC<IProps> = ({ itemList }) => {
       tmpList.push(movie);
       localStorage.setItem("watchList", JSON.stringify(tmpList));
     }
+    toast({
+      title: "watch list",
+      description: "added to watch list",
+      status: "success",
+      duration: 1000,
+      isClosable: true,
+      position: "top",
+    });
   };
 
   const addToWatchedList = (title: string, image: string, id: string) => {
@@ -72,6 +89,14 @@ const MovieList: FC<IProps> = ({ itemList }) => {
       tmpList.push(movie);
       localStorage.setItem("watchedList", JSON.stringify(tmpList));
     }
+    toast({
+      title: "Watched list",
+      description: "added to watched list",
+      status: "success",
+      duration: 1000,
+      isClosable: true,
+      position: "top",
+    });
   };
 
   return (
