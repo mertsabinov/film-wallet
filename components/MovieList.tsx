@@ -10,6 +10,12 @@ type Movie = {
   imbd: string;
 };
 
+type costomMovie = {
+  id: string;
+  title: string;
+  image: string;
+};
+
 type IProps = {
   itemList: Movie[];
 };
@@ -30,6 +36,26 @@ const MovieList: FC<IProps> = ({ itemList }) => {
     pageLoader(1);
   }, []);
 
+  const addToWatchList = (title: string, image: string, id: string) => {
+    const movie = {
+      id: id,
+      title: title,
+      image: image,
+    };
+    try {
+      let movieWatchList: costomMovie[] = JSON.parse(
+        localStorage.getItem("watchList") || ""
+      );
+      movieWatchList.push(movie);
+      localStorage.setItem("watchList", JSON.stringify(movieWatchList));
+      console.log(localStorage.getItem("watchList"));
+    } catch (error) {
+      const tmpList = [];
+      tmpList.push(movie);
+      localStorage.setItem("watchList", JSON.stringify(tmpList));
+    }
+  };
+
   return (
     <Box>
       <SimpleGrid columns={[2, null, 5]} spacing="5">
@@ -47,9 +73,10 @@ const MovieList: FC<IProps> = ({ itemList }) => {
             <Button
               w="100%"
               backgroundColor="blue.200"
+              onClick={() => addToWatchList(title, image, id)}
               _hover={{ background: "orange.200" }}
             >
-              add to list
+              add to watch list
             </Button>
           </Box>
         ))}
