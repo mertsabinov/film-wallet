@@ -3,17 +3,15 @@ import { useState } from "react";
 
 const Banner = () => {
   const [isMobile] = useMediaQuery("(max-width: 800px)");
-  const [img1, setImg1] = useState(
-    "https://images4.alphacoders.com/814/81446.jpg"
-  );
+  const [img1, setImg1] = useState("https://wallpaper.dog/large/5482595.jpg");
   const [img2, setImg2] = useState(
-    "https://www.enjpg.com/img/2020/marvel-2-scaled.jpg"
+    "https://images6.alphacoders.com/441/441991.jpg"
   );
   const [img3, setImg3] = useState(
     "https://wallpaperaccess.com/full/1829697.jpg"
   );
   const [selected, setSelected] = useState<string>(
-    "https://www.enjpg.com/img/2020/marvel-2-scaled.jpg"
+    "https://images6.alphacoders.com/441/441991.jpg"
   );
 
   const desktop = () => {
@@ -38,6 +36,7 @@ const Banner = () => {
             position="absolute"
             src={selected}
             alt="2"
+            border="2px solid #F4D06F"
             borderRadius="50px"
             boxShadow="2xl"
             zIndex={4}
