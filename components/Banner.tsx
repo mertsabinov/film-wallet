@@ -36,7 +36,7 @@ const Banner = () => {
             position="absolute"
             src={selected}
             alt="2"
-            border="2px solid #F4D06F"
+            border="1px solid #392f5a"
             borderRadius="50px"
             boxShadow="2xl"
             zIndex={4}
