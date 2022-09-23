@@ -46,8 +46,8 @@ const Home: FC<IProps> = ({ data, API }) => {
           textAlign="center"
           placeholder="exemple marvel"
           onChange={(e) => setSearch(e.target.value)}
-          borderColor='#F4D06F'
-    />
+          borderColor="#F4D06F"
+        />
         <Button
           onClick={() => searchButton()}
           color="#F4D06F"
@@ -73,7 +73,7 @@ export default Home;
 
 export const getStaticProps: GetStaticProps = async () => {
   const API = process.env.API;
-  const res = await fetch(API + "marvel");
+  const res = await fetch(API + "thor");
   const data = await res.json().then((res) => res.results);
   return {
     props: {
