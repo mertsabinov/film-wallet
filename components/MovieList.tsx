@@ -8,6 +8,7 @@ import {
   useToast,
 } from "@chakra-ui/react";
 import { FC, useEffect, useState } from "react";
+import Card from "./Card";
 
 type Movie = {
   id: string;
@@ -101,41 +102,31 @@ const MovieList: FC<IProps> = ({ itemList }) => {
 
   return (
     <Box>
-      <SimpleGrid columns={[2, null, 5]} spacing="5">
+      <SimpleGrid h="100%" columns={[2, null, 5]} spacing="5">
         {itemListFilter.map(({ title, image, id }) => (
-          <Box
-            key={id}
-            boxShadow="xl"
-            borderRadius="15px"
-            backgroundColor="blackAlpha.200"
-          >
-            <Image w="100%" src={image} borderTopRadius="15px" />
-            <Text h="10vh" textAlign="center" marginLeft="5%" marginRight="5%">
-              {title}
-            </Text>
-            <Button
-              w="100%"
-              backgroundColor="blue.200"
-              onClick={() => addToWatchList(title, image, id)}
-              _hover={{ background: "orange.200" }}
-            >
-              add to watch list
-            </Button>
-            <Button
-              w="100%"
-              marginTop="5%"
-              backgroundColor="blue.200"
-              onClick={() => addToWatchedList(title, image, id)}
-              _hover={{ background: "orange.200" }}
-            >
-              add to watched list
-            </Button>
-          </Box>
+          <Card
+            id={id}
+            title={title}
+            image={image}
+            addToWatchListButton={addToWatchList}
+            addToWatchedListButton={addToWatchedList}
+          />
         ))}
       </SimpleGrid>
       <HStack justifyContent="center" paddingTop="5%" paddingBottom="3%">
         {Array.from({ length: pageSize }).map((_, index) => (
-          <Button key={index} onClick={() => pageLoader(index + 1)}>
+          <Button
+            key={index}
+            onClick={() => pageLoader(index + 1)}
+            color="#F4D06F"
+            border="2px solid #F4D06F"
+            backgroundColor="transparent"
+            _hover={{
+              color: "#392f5a",
+              backgroundColor: "#F4D06F",
+            }}
+            transitionDuration="1s"
+          >
             {index + 1}
           </Button>
         ))}

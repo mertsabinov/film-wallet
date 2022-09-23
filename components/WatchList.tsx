@@ -1,14 +1,13 @@
 import {
   Box,
   SimpleGrid,
-  Text,
-  Image,
   Button,
   HStack,
   Input,
   useToast,
 } from "@chakra-ui/react";
 import { FC, useEffect, useState } from "react";
+import WatchCard from "../components/WatchCard";
 
 type costomMovie = {
   id: string;
@@ -84,36 +83,29 @@ const WatchList: FC<IProps> = ({}) => {
       <SimpleGrid marginTop="2.5%" columns={[2, null, 5]} spacing="5">
         {(!searchStatus ? itemListFilter : filterData).map(
           ({ title, image, id }) => (
-            <Box
-              key={id}
-              boxShadow="xl"
-              borderRadius="15px"
-              backgroundColor="blackAlpha.200"
-            >
-              <Image w="100%" src={image} borderTopRadius="15px" />
-              <Text
-                h="10vh"
-                textAlign="center"
-                marginLeft="5%"
-                marginRight="5%"
-              >
-                {title}
-              </Text>
-              <Button
-                onClick={() => removeButton(id)}
-                w="100%"
-                backgroundColor="red.200"
-                _hover={{ background: "red.100" }}
-              >
-                Remove
-              </Button>
-            </Box>
+            <WatchCard
+              title={title}
+              image={image}
+              id={id}
+              removeToList={removeButton}
+            />
           )
         )}
       </SimpleGrid>
       <HStack justifyContent="center" paddingTop="5%" paddingBottom="3%">
         {Array.from({ length: pageSize }).map((_, index) => (
-          <Button key={index} onClick={() => pageLoader(index + 1)}>
+          <Button
+            key={index}
+            onClick={() => pageLoader(index + 1)}
+            color="#F4D06F"
+            border="2px solid #F4D06F"
+            backgroundColor="transparent"
+            _hover={{
+              color: "#392f5a",
+              backgroundColor: "#F4D06F",
+            }}
+            transitionDuration="1s"
+          >
             {index + 1}
           </Button>
         ))}

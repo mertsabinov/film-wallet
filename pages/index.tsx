@@ -46,8 +46,21 @@ const Home: FC<IProps> = ({ data, API }) => {
           textAlign="center"
           placeholder="exemple marvel"
           onChange={(e) => setSearch(e.target.value)}
-        />
-        <Button onClick={() => searchButton()}>Search</Button>
+          borderColor='#F4D06F'
+    />
+        <Button
+          onClick={() => searchButton()}
+          color="#F4D06F"
+          border="2px solid #F4D06F"
+          backgroundColor="transparent"
+          _hover={{
+            color: "#392f5a",
+            backgroundColor: "#F4D06F",
+          }}
+          transitionDuration="1s"
+        >
+          Search
+        </Button>
       </HStack>
       <Skeleton marginTop="3%" isLoaded={!searchStatus}>
         <MovieList itemList={movies} />
