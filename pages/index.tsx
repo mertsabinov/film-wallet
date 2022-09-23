@@ -2,8 +2,9 @@ import type { GetStaticProps } from "next";
 import { useEffect, useState } from "react";
 import PageLayout from "../components/layouts/PageLayout";
 import MovieList from "../components/MovieList";
-import { Button, HStack, Input, Skeleton } from "@chakra-ui/react";
+import { Button, HStack, Input, Skeleton, Box } from "@chakra-ui/react";
 import { FC } from "react";
+import Banner from "../components/Banner";
 
 type Movie = {
   id: string;
@@ -40,7 +41,8 @@ const Home: FC<IProps> = ({ data, API }) => {
 
   return (
     <PageLayout pageTitle="film wallet">
-      <HStack>
+      <Banner />
+      <HStack paddingTop="5%">
         <Input
           backgroundColor="blackAlpha.200"
           textAlign="center"
