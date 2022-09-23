@@ -3,9 +3,9 @@ import { HStack, Link } from "@chakra-ui/react";
 const Navbar = () => {
   return (
     <HStack justifyContent="center" marginTop="2%">
-      <Link href="/film-walet">Home</Link>
-      <Link href="/film-walet/mywatchlist">My watchlist </Link>
-      <Link href="/film-walet/mywatchedlist">My Watched list</Link>
+      <Link href="/film-wallet">Home</Link>
+      <Link href="/film-wallet/mywatchlist">My watchlist </Link>
+      <Link href="/film-wallet/mywatchedlist">My Watched list</Link>
     </HStack>
   );
 };

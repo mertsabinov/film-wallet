@@ -39,7 +39,7 @@ const Home: FC<IProps> = ({ data, API }) => {
   };
 
   return (
-    <PageLayout pageTitle="film walet">
+    <PageLayout pageTitle="film wallet">
       <HStack>
         <Input
           backgroundColor="blackAlpha.200"

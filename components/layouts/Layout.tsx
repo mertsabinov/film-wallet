@@ -10,7 +10,7 @@ const Layout: FC<IProps> = ({ children }) => {
   return (
     <>
       <Head>
-        <title>Film walet</title>
+        <title>Film wallet</title>
       </Head>
       <main>{children}</main>
     </>
