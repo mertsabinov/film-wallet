@@ -1,5 +1,5 @@
 import { Box, Button, HStack, Image, useMediaQuery } from "@chakra-ui/react";
-import { useState } from "react";
+import { useEffect, useState } from "react";
 
 const Banner = () => {
   const [isMobile] = useMediaQuery("(max-width: 800px)");
@@ -13,51 +13,53 @@ const Banner = () => {
   const [selected, setSelected] = useState<string>(
     "https://images6.alphacoders.com/441/441991.jpg"
   );
+  const [autoPlay, setAutoPlay] = useState<boolean>(true);
+
+  const timer = setTimeout(() => {
+    if (autoPlay) {
+      switch (selected) {
+        case img1:
+          setSelected(img2);
+          break;
+        case img2:
+          setSelected(img3);
+          break;
+        case img3:
+          setSelected(img1);
+          break;
+        default:
+          setSelected(img2);
+          break;
+      }
+    }
+  }, 2500);
 
   const desktop = () => {
+    useEffect(() => {
+      timer;
+      return () => clearTimeout(timer);
+    }, []);
+
     return (
       <Box>
-        <Box h="50vh" position="relative">
+        <Box>
           <Image
-            h="50vh"
-            position="absolute"
-            src={img1}
-            alt="1"
-            left="10vw"
-            borderRadius="50px"
-            boxShadow="2xl"
-            zIndex={3}
-            filter={"blur(10px)"}
-            transitionDuration="1s"
-          />
-          <Image
-            h="50vh"
-            left="27vw"
-            position="absolute"
+            w="60vw"
             src={selected}
-            alt="2"
-            border="1px solid #392f5a"
+            alt="banner"
+            marginLeft="auto"
+            marginRight="auto"
             borderRadius="50px"
-            boxShadow="2xl"
-            zIndex={4}
-            transitionDuration="1s"
-          />
-          <Image
-            h="50vh"
-            position="absolute"
-            src={img3}
-            alt="3"
-            left="35vw"
-            borderRadius="50px"
-            boxShadow="2xl"
-            zIndex={3}
-            filter={"blur(10px)"}
-            transitionDuration="1s"
           />
         </Box>
         <Box textAlign="center" marginTop="2%">
           <Button
-            onClick={() => setSelected(img1)}
+            isActive={selected === img1}
+            _active={{ backgroundColor: "#F4D06F", color: "#392f5a" }}
+            onClick={() => {
+              setAutoPlay(false);
+              setSelected(img1);
+            }}
             color="#F4D06F"
             border="2px solid #F4D06F"
             backgroundColor="transparent"
@@ -65,12 +67,17 @@ const Banner = () => {
               color: "#392f5a",
               backgroundColor: "#F4D06F",
             }}
-            transitionDuration="1s"
+            transitionDuration="0.5s"
           >
             1
           </Button>
           <Button
-            onClick={() => setSelected(img2)}
+            isActive={selected === img2}
+            _active={{ backgroundColor: "#F4D06F", color: "#392f5a" }}
+            onClick={() => {
+              setAutoPlay(false);
+              setSelected(img2);
+            }}
             color="#F4D06F"
             border="2px solid #F4D06F"
             backgroundColor="transparent"
@@ -78,14 +85,19 @@ const Banner = () => {
               color: "#392f5a",
               backgroundColor: "#F4D06F",
             }}
-            transitionDuration="1s"
+            transitionDuration="0.5s"
             marginLeft="2%"
             marginRight="2%"
           >
             2
           </Button>
           <Button
-            onClick={() => setSelected(img3)}
+            isActive={selected === img3}
+            _active={{ backgroundColor: "#F4D06F", color: "#392f5a" }}
+            onClick={() => {
+              setAutoPlay(false);
+              setSelected(img3);
+            }}
             color="#F4D06F"
             border="2px solid #F4D06F"
             backgroundColor="transparent"
@@ -93,7 +105,7 @@ const Banner = () => {
               color: "#392f5a",
               backgroundColor: "#F4D06F",
             }}
-            transitionDuration="1s"
+            transitionDuration="0.5s"
           >
             3
           </Button>
