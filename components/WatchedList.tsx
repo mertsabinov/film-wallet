@@ -112,7 +112,7 @@ const WatchedList: FC<IProps> = ({}) => {
               color: "#392f5a",
               backgroundColor: "#F4D06F",
             }}
-            transitionDuration="1s"
+            transitionDuration="0.5s"
           >
             {index + 1}
           </Button>
