@@ -31,14 +31,14 @@ const Card: FC<IProps> = ({
         backgroundPosition="center"
         position="relative"
         filter={hoverStatus ? "blur(8px) brightness(0.90)" : "blur(0px)"}
-        transitionDuration="1s"
+        transitionDuration="0.5s"
       ></Box>
       <Box
         position="relative"
         zIndex={1}
         bottom="15vh"
         opacity={hoverStatus ? 1 : 0}
-        transitionDuration="1s"
+        transitionDuration="0.5s"
       >
         <Button
           w="100%"
@@ -50,7 +50,7 @@ const Card: FC<IProps> = ({
             backgroundColor: "#F4D06F",
             color: "#392f5a",
           }}
-          transitionDuration="1s"
+          transitionDuration="0.5s"
         >
           add to watch list
         </Button>
@@ -65,7 +65,7 @@ const Card: FC<IProps> = ({
             backgroundColor: "#F4D06F",
             color: "#392f5a",
           }}
-          transitionDuration="1s"
+          transitionDuration="0.5s"
         >
           add to watched list
         </Button>
