@@ -24,14 +24,14 @@ const WatchCard: FC<IProps> = ({ id, title, image, removeToList }) => {
         backgroundPosition="center"
         position="relative"
         filter={hoverStatus ? "blur(8px) brightness(0.90)" : "blur(0px)"}
-        transitionDuration="1s"
+        transitionDuration="0.5s"
       ></Box>
       <Box
         position="relative"
         zIndex={1}
         bottom="15vh"
         opacity={hoverStatus ? 1 : 0}
-        transitionDuration="1s"
+        transitionDuration="0.5s"
       >
         <Button
           w="100%"
@@ -44,7 +44,7 @@ const WatchCard: FC<IProps> = ({ id, title, image, removeToList }) => {
             backgroundColor: "#F4D06F",
             color: "#392f5a",
           }}
-          transitionDuration="1s"
+          transitionDuration="0.5s"
         >
           Remove
         </Button>
