@@ -50,6 +50,7 @@ const Banner = () => {
             marginLeft="auto"
             marginRight="auto"
             borderRadius="50px"
+            boxShadow="2xl"
           />
         </Box>
         <Box textAlign="center" marginTop="2%">
