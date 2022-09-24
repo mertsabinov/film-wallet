@@ -38,83 +38,81 @@ const Banner = () => {
     return () => clearTimeout(timer);
   }, []);
 
-  const desktop = () => {
-    return (
+  const desktop = (
+    <Box>
       <Box>
-        <Box>
-          <Image
-            w="60vw"
-            src={selected}
-            alt="banner"
-            marginLeft="auto"
-            marginRight="auto"
-            borderRadius="50px"
-            boxShadow="2xl"
-          />
-        </Box>
-        <Box textAlign="center" marginTop="2%">
-          <Button
-            isActive={selected === img1}
-            _active={{ backgroundColor: "#F4D06F", color: "#392f5a" }}
-            onClick={() => {
-              setAutoPlay(false);
-              setSelected(img1);
-            }}
-            color="#F4D06F"
-            border="2px solid #F4D06F"
-            backgroundColor="transparent"
-            _hover={{
-              color: "#392f5a",
-              backgroundColor: "#F4D06F",
-            }}
-            transitionDuration="0.5s"
-          >
-            1
-          </Button>
-          <Button
-            isActive={selected === img2}
-            _active={{ backgroundColor: "#F4D06F", color: "#392f5a" }}
-            onClick={() => {
-              setAutoPlay(false);
-              setSelected(img2);
-            }}
-            color="#F4D06F"
-            border="2px solid #F4D06F"
-            backgroundColor="transparent"
-            _hover={{
-              color: "#392f5a",
-              backgroundColor: "#F4D06F",
-            }}
-            transitionDuration="0.5s"
-            marginLeft="2%"
-            marginRight="2%"
-          >
-            2
-          </Button>
-          <Button
-            isActive={selected === img3}
-            _active={{ backgroundColor: "#F4D06F", color: "#392f5a" }}
-            onClick={() => {
-              setAutoPlay(false);
-              setSelected(img3);
-            }}
-            color="#F4D06F"
-            border="2px solid #F4D06F"
-            backgroundColor="transparent"
-            _hover={{
-              color: "#392f5a",
-              backgroundColor: "#F4D06F",
-            }}
-            transitionDuration="0.5s"
-          >
-            3
-          </Button>
-        </Box>
+        <Image
+          w="60vw"
+          src={selected}
+          alt="banner"
+          marginLeft="auto"
+          marginRight="auto"
+          borderRadius="50px"
+          boxShadow="2xl"
+        />
       </Box>
-    );
-  };
+      <Box textAlign="center" marginTop="2%">
+        <Button
+          isActive={selected === img1}
+          _active={{ backgroundColor: "#F4D06F", color: "#392f5a" }}
+          onClick={() => {
+            setAutoPlay(false);
+            setSelected(img1);
+          }}
+          color="#F4D06F"
+          border="2px solid #F4D06F"
+          backgroundColor="transparent"
+          _hover={{
+            color: "#392f5a",
+            backgroundColor: "#F4D06F",
+          }}
+          transitionDuration="0.5s"
+        >
+          1
+        </Button>
+        <Button
+          isActive={selected === img2}
+          _active={{ backgroundColor: "#F4D06F", color: "#392f5a" }}
+          onClick={() => {
+            setAutoPlay(false);
+            setSelected(img2);
+          }}
+          color="#F4D06F"
+          border="2px solid #F4D06F"
+          backgroundColor="transparent"
+          _hover={{
+            color: "#392f5a",
+            backgroundColor: "#F4D06F",
+          }}
+          transitionDuration="0.5s"
+          marginLeft="2%"
+          marginRight="2%"
+        >
+          2
+        </Button>
+        <Button
+          isActive={selected === img3}
+          _active={{ backgroundColor: "#F4D06F", color: "#392f5a" }}
+          onClick={() => {
+            setAutoPlay(false);
+            setSelected(img3);
+          }}
+          color="#F4D06F"
+          border="2px solid #F4D06F"
+          backgroundColor="transparent"
+          _hover={{
+            color: "#392f5a",
+            backgroundColor: "#F4D06F",
+          }}
+          transitionDuration="0.5s"
+        >
+          3
+        </Button>
+      </Box>
+    </Box>
+  );
 
-  return isMobile ? null : desktop();
+  return isMobile ? null : desktop;
 };
 
 export default Banner;
