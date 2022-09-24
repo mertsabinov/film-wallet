@@ -16,21 +16,24 @@ const Navbar = () => {
       >
         <Link
           href="/film-wallet"
-          _hover={{ color: "#F4D06F", textDecoration: "setline" }}
+          border="1px solid transparent"
+          _hover={{ color: "#F4D06F", borderColor: "#F4D06F" }}
           transitionDuration="0.5s"
         >
           Home
         </Link>
         <Link
           href="/film-wallet/mywatchlist"
-          _hover={{ color: "#F4D06F" }}
+          border="1px solid transparent"
+          _hover={{ color: "#F4D06F", borderColor: "#F4D06F" }}
           transitionDuration="0.5s"
         >
           My watchlist{" "}
         </Link>
         <Link
           href="/film-wallet/mywatchedlist"
-          _hover={{ color: "#F4D06F" }}
+          border="1px solid transparent"
+          _hover={{ color: "#F4D06F", borderColor: "#F4D06F" }}
           transitionDuration="0.5s"
         >
           My Watched list
