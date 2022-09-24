@@ -33,13 +33,12 @@ const Banner = () => {
       }
     }
   }, 2500);
+  useEffect(() => {
+    timer;
+    return () => clearTimeout(timer);
+  }, []);
 
   const desktop = () => {
-    useEffect(() => {
-      timer;
-      return () => clearTimeout(timer);
-    }, []);
-
     return (
       <Box>
         <Box>
