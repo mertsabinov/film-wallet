@@ -1,8 +1,9 @@
-import { Box, HStack, Link } from "@chakra-ui/react";
+import { Box, HStack, Link, useMediaQuery } from "@chakra-ui/react";
 
 const Navbar = () => {
+  const [isMobile] = useMediaQuery("(min-width: 1080px)");
   return (
-    <Box paddingBottom="1%" position="relative">
+    <Box paddingBottom={isMobile ? "%1" : "5%"} position="relative">
       <HStack
         position="fixed"
         top="0"
